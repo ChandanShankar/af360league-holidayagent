@@ -38,35 +38,44 @@ global with sharing class HolidayGreetingGenerator {
 
     private static ImageResponse callExternalImageService(String name, String message, String templateId, String fromName) {
         ImageResponse ImageResponse = new ImageResponse();
-        
+
         Http http = new Http();
         HttpRequest request = new HttpRequest();
-        //TODO FOR THE CHALLENGE : Make a callout to the external service using the Named Credential.
-        
+
+        // ✅ Endpoint: <Holiday_Greeting_Service Named Credential>/api/greeting/generate
+        request.setEndpoint('callout:Holiday_Greeting_Service/api/greeting/generate');
+        // ✅ Method: POST
+        request.setMethod('POST');
+        // ✅ Timeout: 120 seconds
+        request.setTimeout(120000);
+        request.setHeader('Content-Type', 'application/json');
+
         // Construct JSON body matching the HTTP callout structure
         Map<String, String> bodyMap = new Map<String, String>{
             'templateId' => templateId,
-            'message' => message,
-            'to' => name,
-            'from' => fromName
+            'message'    => message,
+            'to'         => name,
+            'from'       => fromName
         };
-        //TODO FOR THE CHALLENGE : Add the serialized version of the above variable to the request body.
+
+        // ✅ Body: A serialized version of bodyMap
+        request.setBody(JSON.serialize(bodyMap));
 
         HttpResponse response = http.send(request);
-        
+
         if (response.getStatusCode() == 200) {
             // Parse the JSON response
             // Expected format: {"success": true, "downloadUrl": "...", "templateId": "...", "messageLength": ...}
             String responseBody = response.getBody();
             try {
                 Map<String, Object> responseMap = (Map<String, Object>) JSON.deserializeUntyped(responseBody);
-                
+
                 // Check if the operation was successful
                 Boolean success = (Boolean) responseMap.get('success');
                 if (success == null || !success) {
                     throw new ImageGenerationException('Image generation failed: API returned success=false');
                 }
-                
+
                 // Extract the downloadUrl
                 if (responseMap.containsKey('downloadUrl')) {
                     ImageResponse.downloadUrl = (String) responseMap.get('downloadUrl');
@@ -81,9 +90,12 @@ global with sharing class HolidayGreetingGenerator {
                 throw new ImageGenerationException('Error parsing response: ' + e.getMessage() + ' - Response: ' + responseBody);
             }
         } else {
-            throw new ImageGenerationException('Error generating Image: HTTP ' + response.getStatusCode() + ' - ' + response.getStatus() + ' - Response: ' + response.getBody());
+            throw new ImageGenerationException(
+                'Error generating Image: HTTP ' + response.getStatusCode() + ' - ' + response.getStatus() + ' - Response: ' + response.getBody()
+            );
         }
-        
+
         return ImageResponse;
     }
+
 }

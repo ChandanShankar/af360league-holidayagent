@@ -1,0 +1,21 @@
+{
+  "required" : [ "daysLookback", "patientId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "daysLookback" : {
+      "title" : "Days Lookback",
+      "description" : "Number of days to look back for observations (currently not used)",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "patientId" : {
+      "title" : "Patient Id",
+      "description" : "The Salesforce Id of the Patient/Account to assess",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

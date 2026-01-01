@@ -1,0 +1,35 @@
+{
+  "required" : [ "fromName", "holidayMessage", "recipientName", "templateData" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "fromName" : {
+      "title" : "From Name",
+      "description" : "Name of the sender for the holiday greeting",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "holidayMessage" : {
+      "title" : "Generated Message",
+      "description" : "The holiday greeting message to be included in the Image. Always confirm the message with the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "recipientName" : {
+      "title" : "Recipient Name",
+      "description" : "Name of the recipient for the holiday greeting",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "templateData" : {
+      "title" : "Template ID",
+      "description" : "Template ID to use for Image generation. Always ask to choose the template",
+      "lightning:type" : "c__HolidayTemplateSelector",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

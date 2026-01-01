@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Generates a personalized holiday greeting message based on a recipient&apos;s relationship type. Use this when a user wants to write a holiday card, send a greeting, or create a holiday Image for a specific person.</description>
+    <invocationTarget>HolidayGreetingPrompt</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>HolidayGreetingPrompt</masterLabel>
+</GenAiFunction>

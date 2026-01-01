@@ -1,0 +1,15 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "complianceMetrics" : {
+      "title" : "Compliance Metrics",
+      "description" : "Compliance metrics including target price, gap, status, and color",
+      "lightning:type" : "c__complianceResult",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

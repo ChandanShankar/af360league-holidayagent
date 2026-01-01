@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Provides diabetes care assessment using Health Cloud Care Observations. Combine the test results into one paragraph and summarize.</description>
+    <invocationTarget>DiabetesCareAssessment</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Assess Diabetes Patient Lab Results</masterLabel>
+</GenAiFunction>

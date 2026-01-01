@@ -1,0 +1,28 @@
+{
+  "required" : [ "observedPrice", "productName", "storeName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "observedPrice" : {
+      "title" : "Observed Price",
+      "description" : "The price observed by the field rep (e.g., 2.00)",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "productName" : {
+      "title" : "Product Name",
+      "description" : "Name of the product",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "storeName" : {
+      "title" : "Store Name",
+      "description" : "Name of the retail store (e.g., \"downtown store\")",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,14 @@
+{
+  "required" : [ "Input:Relationship" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Relationship" : {
+      "title" : "Relationship",
+      "description" : "Relationship of the Recipient with the Sender",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
